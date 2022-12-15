@@ -1,4 +1,14 @@
+type Course {
+    _id: ID!
+    title: String!
+    teacher: String
+    description: String!
+    topic: String
+}
+
 type Query {
-  hello: String
-  greeting: String
+    "return an array of Courses"
+    getCourses: [Course]
+    "return a Course"
+    getCourse(id: ID!): Course
 }
