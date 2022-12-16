@@ -4,6 +4,7 @@ type Course {
   teacher: String
   description: String!
   topic: String
+  people: [Student]
 }
 
 type Student {
@@ -57,10 +58,15 @@ type Mutation {
   editCourse(_id: ID!, input: CourseEditInput): Course
   "delete a specific Course"
   deleteCourse(_id: ID!):[Course]
+  "Add a Person to specific Course"
+  addPerson(courseId: ID!, personId: ID!): Course
+
   "Create a specific Student"
   createStudent(input: StudentInput!): Student
   "Edit a specific Student"
   editStudent(_id: ID!, input: StudentEditInput): Student
   "delete specific Student"
   deleteStudent(_id: ID!):[Student]
+
+
 }
