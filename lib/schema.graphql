@@ -1,8 +1,8 @@
 type Course {
   _id: ID!
   title: String!
-  teacher: String
   description: String!
+  teacher: String
   topic: String
   people: [Student]
 }
@@ -27,15 +27,15 @@ type Query {
 
 input CourseInput {
   title: String!
-  teacher: String
   description: String!
+  teacher: String
   topic: String
 }
 
 input CourseEditInput {
   title: String
-  teacher: String
   description: String
+  teacher: String
   topic: String
 }
 
