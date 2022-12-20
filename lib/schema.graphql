@@ -10,7 +10,7 @@ type Course {
   title: String!
   description: String!
   teacher: String
-  topic: String
+  topic: String @deprecated
   people: [Student]
   level: Level
 }
@@ -25,7 +25,7 @@ type Student implements Person {
   _id: ID!
   name: String!
   email: String!
-  alias: String
+  alias: String @deprecated
   avatar: String
 }
 

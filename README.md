@@ -59,6 +59,7 @@ specify properties that belongs to appropriate types, for instance,
 if the query will return a Person which is a Monitor then
 only for that the property phone will be shown. The same will occour for Student
 
+<pre><code>
 {
  	getPeople{
     _id
@@ -73,7 +74,36 @@ only for that the property phone will be shown. The same will occour for Student
     }
   }
 }
+</code></pre>
 
+## Query with Directives
+The code below will use the @include directive to add a condition is certain properties or fields should be shown or not
 
+<pre><code>
+query getPeopleData($monitor: Boolean!, $avatar: Boolean!)
+{
+ 	getPeople{
+    _id
+    name
+    email
+    ... on Monitor @include(if: $monitor)
+    {
+      phone
+    }
+    ... on Student @include(if: $avatar){
+      avatar
+      alias
+    }
+  }
+}
+</code></pre>
 
+variables
+
+<pre><code>
+{
+  "monitor": false,
+  "avatar": false
+}
+</code></pre>
 
