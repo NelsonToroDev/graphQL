@@ -1,7 +1,7 @@
 # GraphQL with NodeJS project
 
 ## Some Example of Queries and Mutations supported
-+ Query with Alias and Fragments
++ Queries with Alias and Fragments
 <pre><code>
 {
   AllCourses: getCourses {
@@ -52,6 +52,27 @@ mutation AddPersonToCourse($courseid: ID!, $personid: ID!)
   "personid": "639bd9e639b3cdc8712277c4"
 }
 </code></pre>
+
+## Query Interfaces
+Since Monitor and Students implements the interface Person then we can query them with 
+specify properties that belongs to appropriate types, for instance, 
+if the query will return a Person which is a Monitor then
+only for that the property phone will be shown. The same will occour for Student
+
+{
+ 	getPeople{
+    _id
+    name
+    email
+    ... on Monitor{
+      phone
+    }
+    ... on Student{
+      alias
+      avatar
+    }
+  }
+}
 
 
 
