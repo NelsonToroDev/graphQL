@@ -107,3 +107,24 @@ variables
 }
 </code></pre>
 
+## Global Search query example
+<pre><code>
+{
+  searchItems(keyword: "nek"){
+    __typename
+    ... on Course{
+      title
+      description
+    }
+    ... on Monitor{
+      name
+      phone
+    }
+    ... on Student{
+      name
+      avatar
+    }
+  }
+}
+</code></pre>
+
