@@ -1,0 +1,102 @@
+"Validate level type"
+enum Level {
+  Beginner
+  Intermediate
+  Advanced
+}
+
+union GlobalSearch = Course | Student | Monitor
+
+type Course {
+  _id: ID!
+  title: String!
+  description: String!
+  teacher: String
+  topic: String @deprecated
+  people: [Student]
+  level: Level
+}
+
+interface Person {
+  _id: ID!
+  name: String!
+  email: String!
+}
+
+type Student implements Person {
+  _id: ID!
+  name: String!
+  email: String!
+  alias: String @deprecated
+  avatar: String
+}
+
+type Monitor implements Person {
+  _id: ID!
+  name: String!
+  email: String!
+  phone: String
+}
+
+type Query {
+  "return an array of Courses"
+  getCourses: [Course]
+  "return a specific Course"
+  getCourse(id: ID!): Course
+  "return an array of people"
+  getPeople: [Person]
+  "return a specific person"
+  getPerson(id: ID!): Person
+  "perform a global search"
+  searchItems(keyword: String!) : [GlobalSearch]
+}
+
+input CourseInput {
+  title: String!
+  description: String!
+  teacher: String
+  topic: String
+  level: Level
+}
+
+input CourseEditInput {
+  title: String
+  description: String
+  teacher: String
+  topic: String
+  level: Level
+}
+
+input PersonInput {
+  name: String!
+  email: String!
+  alias: String
+  avatar: String
+  phone: String
+}
+
+input PersonEditInput {
+  name: String
+  email: String
+  alias: String
+  avatar: String
+  phone: String
+}
+
+type Mutation {
+  "Create a specific Course"
+  createCourse(input: CourseInput!): Course
+  "Edit a specific Course"
+  editCourse(_id: ID!, input: CourseEditInput): Course
+  "delete a specific Course"
+  deleteCourse(_id: ID!): Boolean
+  "Add a Person to specific Course"
+  addPerson(courseId: ID!, personId: ID!): Course
+
+  "Create a specific Person"
+  createPerson(input: PersonInput!): Person
+  "Edit a specific Person"
+  editPerson(_id: ID!, input: PersonEditInput): Person
+  "delete specific Person"
+  deletePerson(_id: ID!): Boolean
+}
