@@ -5,10 +5,52 @@ html {
   --focus-blue: rgb(69, 159, 189);
 }
 
-.item {
-  --dark-gray: rgb(18, 99, 16);
-  --light-gray: rgb(207, 243, 46);
-  --focus-blue: rgb(223, 49, 43);
+.resultCard{
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: rgb(142, 231, 130);
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 0.25rem;
+  width: 18rem;
+  padding: 5px;
+  margin: 20px;
+}
+
+.btn-info-container {
+  --target-size: 48px; /* https://web.dev/accessible-tap-targets/ */
+  --box-height: var(--target-size);
+  --border-radius: calc(var(--box-height) / 2);
+  --border-width: 2px;
+  --icon-size: calc(var(--box-height) * 3 / 4);
+  --side-margin: calc(var(--border-radius) / 2);
+  --icon-vertical-margin: calc((var(--box-height) - var(--icon-size)) / 2);
+
+  height: var(--box-height);
+  max-width: 561px; /* to follow the search box of google.com */
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  top: 48px;
+}
+
+.info {
+    -webkit-appearance: none; /* to prevent Safari from ignoring font-size */
+  color: var(--focus-blue);
+  font-family: 'Noto Sans', Verdana, sans-serif;
+  font-size: small  ;
+  opacity: 2; /* to override the default of Firefox */
+
+  height: 100%;
+  width: 80%;
+
+  padding-left: calc(var(--side-margin) + var(--icon-size) + 4px);
+  padding-right: var(--side-margin);
 }
 
 .searchbox {
@@ -30,8 +72,19 @@ html {
   border: var(--border-width) solid var(--dark-gray);
   border-radius: var(--border-radius);
   height: 100%;
-  width: 100%;
+  width: 80%;
 }
+
+.searchbox button{
+  width: auto;
+  position: relative;
+  border: var(--border-width) solid var(--dark-gray);
+  border-radius: var(--border-radius);
+  height: 100%;
+  width: 20%;
+}
+
+
 
 /* Styling each component */
 .searchbox svg {

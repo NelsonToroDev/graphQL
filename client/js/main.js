@@ -8,18 +8,20 @@ const template = `
     There was an error: {{../error}}
 {{/with}}
 {{#each items}}
-<div class="item">
-    <h2>{{__typename}}</h2>
-    <h3>{{title}}{{name}}</h3>
-    {{#with description}}
-        <p>{{../description}}</p>
-    {{/with}}
-    {{#with avatar}}
-    <p><a href="img:{{../avatar}}">{{../avatar}}</a></p>
-    {{/with}}
-    {{#with phone}}
-    <p><a href="tel:{{../phone}}">{{../phone}}</a></p>
-    {{/with}}
+<div class="resultCard">
+    <h2 class="card-header">{{__typename}}</h2>
+    <div class="card-body">
+        <h3 class="card-title">{{title}}{{name}}</h3>
+        {{#with description}}
+            <p class="card-text">{{../description}}</p>
+        {{/with}}
+        {{#with avatar}}
+        <p class="card-text"><a href="img:{{../avatar}}">{{../avatar}}</a></p>
+        {{/with}}
+        {{#with phone}}
+        <p class="card-text"><a href="tel:{{../phone}}">{{../phone}}</a></p>
+        {{/with}}
+    </div>
 </div>
 {{/each}}
 `
