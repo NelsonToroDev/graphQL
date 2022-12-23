@@ -1,4 +1,31 @@
 # GraphQL with NodeJS project
+GraphQL project with Mongo and SASS to handle some entities like Courses, Students or Monitors
+A client was implemented too into the client folder. this client handles a global search of any text found into entities
+
+## Run
+### backend
+<pre><code>
+npm run dev
+
+or
+
+npm start // for production
+</code></pre>
+### frontend
+1. run SASS
+<pre><code>
+cd client
+npm run sass
+</code></pre>
+2. bundle javascript files
+<pre><code>
+npm run bundle
+</code></pre>
+3. load index.html using some Live Server
+
+## Screenshots
+![landing.png](client/screenshots/landing.png)
+![search.png](client/screenshots/search.png)
 
 ## Some Example of Queries and Mutations supported
 + Queries with Alias and Fragments
