@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "sass": "node-sass -w scss/ -o css/ --recursive",
     "bundle": "browserify -g uglifyify js/main.js > js/bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,7 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "graphql-request": "^5.1.0",
-    "handlebars": "^4.7.7"
+    "handlebars": "^4.7.7",
+    "node-sass": "^8.0.0"
   },
   "devDependencies": {
     "browserify": "^17.0.0",
