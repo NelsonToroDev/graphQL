@@ -5,23 +5,44 @@ A client was implemented too into the client folder. this client handles a globa
 ## Run
 ### backend
 <pre><code>
+open inex.js in vscode and press F5 for debugging
+
+or 
+
 npm run dev
 
 or
 
 npm start // for production
+
 </code></pre>
 ### frontend
 1. run SASS
+Open a new terminal in client folder and run the following
 <pre><code>
 cd client
 npm run sass
 </code></pre>
-2. bundle javascript files
+
+#### if you get the following error:
+* This usually happens because your environment has changed since running `npm install`.
+* Run `npm rebuild node-sass` to download the binding for your current environment.
+
+  
+then you can try to rebuild sass
 <pre><code>
+npm rebuild node-sass
+npm run sass
+</code></pre>
+
+2. bundle javascript files
+Open a new terminal in client folder and run the following
+<pre><code>
+cd client
 npm run bundle
 </code></pre>
-3. load index.html using some Live Server
+
+3. load client/index.html using some Live Server
 
 ## Screenshots
 ![landing.png](client/screenshots/landing.png)
@@ -54,6 +75,21 @@ fragment CourseFields on Course{
   people {
     _id
     name
+  }
+}
+</code></pre>
+
+## Query a single course
+<pre><code>
+{
+  getCourse (id: "639bbfd73cab3e6d46500fb1") {
+    _id
+    title
+    description
+    people {
+      _id
+      name
+    }
   }
 }
 </code></pre>
